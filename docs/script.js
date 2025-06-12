@@ -1,82 +1,54 @@
-// 質問のデータを定義（後で追加していける）
-const questions = [{
-        question: "現在の主な支払い方法は？",
-        options: ["現金", "クレジットカード", "QRコード決済"]
-    },
-    {
-        question: "スマホの携帯会社は？",
-        options: ["au", "docomo", "SoftBank", "楽天", "その他"]
-    },
-    {
-        question: "メルカリをよく使いますか？",
-        options: ["よく使う", "たまに使う", "使わない"]
-    }
+const questions = [
+  {
+    question: "現在の主な支払い方法は？",
+    options: ["現金", "クレジットカード", "QRコード決済"]
+  },
+  {
+    question: "利用している携帯会社は？",
+    options: ["docomo", "au", "SoftBank", "格安SIM"]
+  },
+  {
+    question: "メルカリなどフリマアプリを使ってる？",
+    options: ["よく使う", "たまに使う", "使わない"]
+  }
 ];
 
-// 回答を記録する配列
-let answers = [];
+const results = {
+  // 簡易パターン：本格ロジックは後から実装
+  default: "あなたにおすすめの決済は PayPay です！<br><a href='https://paypay.ne.jp/guide/' target='_blank'>使い方を見る</a>"
+};
 
-// 今どの質問かを示す番号
-let currentQuestionIndex = 0;
+let currentQuestion = 0;
+const answers = [];
 
-// 質問を表示する関数
 function showQuestion() {
-    const box = document.getElementById("question-box");
-    box.innerHTML = ""; // 前の質問を消す
-
-    const q = questions[currentQuestionIndex];
-
-    const questionText = document.createElement("h2");
-    questionText.textContent = q.question;
-    box.appendChild(questionText);
-
-    q.options.forEach(option => {
-        const btn = document.createElement("button");
-        btn.textContent = option;
-        btn.onclick = () => {
-            answers.push(option);
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                showQuestion(); // 次の質問へ
-            } else {
-                showResult(); // 終了したら結果を表示
-            }
-        };
-        box.appendChild(btn);
-    });
+  const q = questions[currentQuestion];
+  document.getElementById("question").textContent = q.question;
+  const optionsDiv = document.getElementById("options");
+  optionsDiv.innerHTML = "";
+  q.options.forEach((opt) => {
+    const btn = document.createElement("button");
+    btn.textContent = opt;
+    btn.onclick = () => handleAnswer(opt);
+    optionsDiv.appendChild(btn);
+  });
 }
 
-// 診断結果を表示する関数
+function handleAnswer(answer) {
+  answers.push(answer);
+  currentQuestion++;
+  if (currentQuestion < questions.length) {
+    showQuestion();
+  } else {
+    showResult();
+  }
+}
+
 function showResult() {
-    const box = document.getElementById("question-box");
-    box.innerHTML = "<h2>診断結果</h2>";
-
-    // シンプルな診断ロジック（あとで強化可能）
-    const payment = answers[0];
-    const carrier = answers[1];
-    const mercari = answers[2];
-
-    let result = "";
-
-    if (payment === "現金" && carrier === "au") {
-        result = "あなたには au PAY をおすすめします！";
-    } else if (mercari === "よく使う") {
-        result = "あなたには メルペイ をおすすめします！";
-    } else {
-        result = "あなたには PayPay や クレジットカードの利用が便利かも！";
-    }
-
-    const resultText = document.createElement("p");
-    resultText.textContent = result;
-    box.appendChild(resultText);
-
-    // 公式リンク（例：動的にリンクを出してもいい）
-    const link = document.createElement("a");
-    link.href = "https://wallet.auone.jp/contents/sp/guide/start-guide/";
-    link.textContent = "au PAY の導入方法を見る";
-    link.target = "_blank";
-    box.appendChild(link);
+  document.getElementById("question-container").style.display = "none";
+  const resultDiv = document.getElementById("result");
+  resultDiv.innerHTML = results.default; // 仮で固定表示
+  resultDiv.style.display = "block";
 }
 
-// 最初の質問を表示
-showQuestion();
+window.onload = showQuestion;

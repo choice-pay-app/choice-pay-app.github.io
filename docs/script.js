@@ -14,12 +14,17 @@ const questions = [
 ];
 
 const results = {
-  // 簡易パターン：本格ロジックは後から実装
-  default: "あなたにおすすめの決済は PayPay です！<br><a href='https://paypay.ne.jp/guide/' target='_blank'>使い方を見る</a>"
+  default: "あなたにおすすめの決済は <strong>PayPay</strong> です！<br><a href='https://paypay.ne.jp/guide/' target='_blank'>使い方を見る</a>"
 };
 
 let currentQuestion = 0;
 const answers = [];
+
+document.getElementById("start-button").addEventListener("click", () => {
+  document.getElementById("start-container").style.display = "none";
+  document.getElementById("question-container").style.display = "block";
+  showQuestion();
+});
 
 function showQuestion() {
   const q = questions[currentQuestion];
@@ -47,8 +52,6 @@ function handleAnswer(answer) {
 function showResult() {
   document.getElementById("question-container").style.display = "none";
   const resultDiv = document.getElementById("result");
-  resultDiv.innerHTML = results.default; // 仮で固定表示
+  resultDiv.innerHTML = results.default;
   resultDiv.style.display = "block";
 }
-
-window.onload = showQuestion;

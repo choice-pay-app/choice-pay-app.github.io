@@ -72,7 +72,7 @@ function showResult() {
 
     // 公式リンク（例：動的にリンクを出してもいい）
     const link = document.createElement("a");
-    link.href = "https://au-pay.wallet.auone.jp/";
+    link.href = "https://wallet.auone.jp/contents/sp/guide/start-guide/";
     link.textContent = "au PAY の導入方法を見る";
     link.target = "_blank";
     box.appendChild(link);

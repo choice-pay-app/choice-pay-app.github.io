@@ -4,30 +4,63 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
 
 .container {
-  width: 100%;
+  width: 90%;
   max-width: 600px;
   background-color: white;
   padding: 30px;
   margin: 40px auto;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-  min-height: 400px; /* ← 高さ固定でガタつかないようにする */
+  min-height: 700px; /* ← 縦長にする */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
 h1 {
   text-align: center;
   color: #007bff;
   margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.icon-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.icon-row img {
+  height: 40px;
+  width: auto;
+}
+
+#start-container {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
 }
 
 .question {
@@ -42,36 +75,8 @@ h1 {
   gap: 12px;
 }
 
-button {
-  padding: 12px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
 .result {
   font-size: 18px;
   text-align: center;
   color: #333;
-}
-
-.icon-row {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 10px;
-  flex-wrap: wrap;
-}
-
-.icon-row img {
-  height: 40px;
-  width: auto;
 }

@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>決済診断アプリ</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>決済診断アプリ</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <div class="container">
-        <h1>あなたにおすすめの決済方法を診断</h1>
-        <div id="question-box"></div> <!-- ここにJSが質問を表示してくれる -->
-    </div>
-    <script src="script.js"></script>
-</body>
+  <div class="icon-row top-icons">
+    <!-- 上部アイコン（あとから差し替え可能） -->
+    <img src="icons/aupay.png" alt="au PAY" />
+    <img src="icons/paypay.png" alt="PayPay" />
+    <img src="icons/merpay.png" alt="メルペイ" />
+  </div>
 
+  <div class="container">
+    <h1>あなたにぴったりの<br>キャッシュレス決済は？</h1>
+
+    <div id="question-container">
+      <div class="question" id="question">質問がここに表示されます</div>
+      <div class="options" id="options"></div>
+    </div>
+
+    <div id="result" class="result" style="display: none;"></div>
+  </div>
+
+  <div class="icon-row bottom-icons">
+    <!-- 下部アイコン（あとから差し替え可能） -->
+    <img src="icons/linepay.png" alt="LINE Pay" />
+    <img src="icons/suica.png" alt="Suica" />
+    <img src="icons/rakutenpay.png" alt="楽天ペイ" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>

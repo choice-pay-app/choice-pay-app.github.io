@@ -17,11 +17,12 @@ body {
   margin: 40px auto;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  min-height: 700px; /* ← 縦長にする */
+  height: 800px; /* ← ここで縦長固定 */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 h1 {
@@ -47,6 +48,8 @@ h1 {
 #start-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }
 
 button {

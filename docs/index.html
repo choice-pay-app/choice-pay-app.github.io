@@ -7,29 +7,36 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="icon-row top-icons">
-    <!-- 上部アイコン（あとから差し替え可能） -->
-    <img src="icons/aupay.png" alt="au PAY" />
-    <img src="icons/paypay.png" alt="PayPay" />
-    <img src="icons/merpay.png" alt="メルペイ" />
-  </div>
-
   <div class="container">
+    <div class="icon-row">
+      <!-- 上部アイコン -->
+      <img src="icons/aupay.png" alt="au PAY" />
+      <img src="icons/paypay.png" alt="PayPay" />
+      <img src="icons/merpay.png" alt="メルペイ" />
+    </div>
+
     <h1>あなたにぴったりの<br>キャッシュレス決済は？</h1>
 
-    <div id="question-container">
-      <div class="question" id="question">質問がここに表示されます</div>
+    <!-- 診断スタートボタン -->
+    <div id="start-container">
+      <button id="start-button">診断スタート</button>
+    </div>
+
+    <!-- 質問表示 -->
+    <div id="question-container" style="display: none;">
+      <div class="question" id="question">ここに質問</div>
       <div class="options" id="options"></div>
     </div>
 
+    <!-- 結果表示 -->
     <div id="result" class="result" style="display: none;"></div>
-  </div>
 
-  <div class="icon-row bottom-icons">
-    <!-- 下部アイコン（あとから差し替え可能） -->
-    <img src="icons/linepay.png" alt="LINE Pay" />
-    <img src="icons/suica.png" alt="Suica" />
-    <img src="icons/rakutenpay.png" alt="楽天ペイ" />
+    <div class="icon-row">
+      <!-- 下部アイコン -->
+      <img src="icons/linepay.png" alt="LINE Pay" />
+      <img src="icons/suica.png" alt="Suica" />
+      <img src="icons/rakutenpay.png" alt="楽天ペイ" />
+    </div>
   </div>
 
   <script src="script.js"></script>

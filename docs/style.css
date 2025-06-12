@@ -1,85 +1,62 @@
+/* 全体の背景や基本設定 */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f2f2f2;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+    font-family: sans-serif;
+    background-color: #f2f2f2;  /* 背景色を元に戻す */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* 診断アプリ本体のボックス */
 .container {
-    width: 90%;                /* 画面幅の90%に（スマホでも収まりやすい） */
-    max-width: 400px;          /* PC表示での最大幅を少し細めに */
-    height: 90vh;              /* 画面の90%の高さ。全体をスクロールせずに見えるように */
-    margin: 5vh auto;          /* 上下5%の余白を中央に配置 */
+    width: 90%;
+    max-width: 360px;          /* 横幅をやや細く */
+    height: 600px;             /* 画面内に収まる程度に縦長 */
     background-color: white;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* 中身を上下に配置 */
-    overflow: hidden; /* スクロール防止 */
+    justify-content: space-between;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-
-h1 {
-  text-align: center;
-  color: #007bff;
-  margin-bottom: 20px;
-  line-height: 1.5;
-}
-
-.icon-row {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin: 10px 0;
-}
-
-.icon-row img {
-  height: 40px;
-  width: auto;
-}
-
-#start-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
+/* スタートボタン */
 button {
-  padding: 12px 24px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
 }
 
 button:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
-.question {
-  font-size: 18px;
-  text-align: center;
-  margin-bottom: 20px;
+/* 質問表示部分（固定サイズにする） */
+#question-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.options {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.result {
-  font-size: 18px;
-  text-align: center;
-  color: #333;
+/* アイコン画像配置予定の上下スペース */
+#icon-top, #icon-bottom {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }

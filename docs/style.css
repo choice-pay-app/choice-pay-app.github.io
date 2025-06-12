@@ -1,12 +1,12 @@
 .container {
   width: 90%;
-  max-width: 600px;
+  max-width: 550px;
   background-color: white;
   padding: 30px;
   margin: 40px auto;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  height: 800px; /* ← ここで縦長固定 */
+  height: 750px; /* ← ここで縦長固定 */
   display: flex;
   flex-direction: column;
   justify-content: space-between;

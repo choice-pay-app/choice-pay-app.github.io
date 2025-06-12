@@ -1,34 +1,42 @@
-/* 全体の背景や基本設定 */
+/* 画面全体 */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: #f2f2f2;  /* ←これが背景色 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;  /* ←スクロールバーを消す */
+    background-color: #f2f2f2;
+    overflow: hidden;
 }
 
-/* 診断アプリ本体のボックス */
+/* アプリ全体を包むウィンドウ */
 .container {
     width: 90%;
     max-width: 360px;
-    height: 95vh;  /* ←画面の95%の高さでスクロール回避 */
+    height: 100vh; /* スマホ・PC共通 */
     background-color: white;
-    padding: 20px;
+    padding: 16px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
-/* スタートボタン */
+/* 質問表示エリア */
+#question-container {
+    flex-grow: 1;
+    overflow-y: auto;  /* 質問が長くてもここだけスクロール可 */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ボタン */
 button {
-    display: block;
     width: 100%;
     padding: 12px;
     font-size: 16px;
@@ -37,23 +45,14 @@ button {
     background-color: #007bff;
     color: white;
     cursor: pointer;
-    margin-top: auto;
+    margin-top: 16px;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-/* 質問エリア（高さを固定） */
-#question-container {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-}
-
-/* 上下のアイコン配置スペース */
+/* アイコン配置 */
 #icon-top, #icon-bottom {
     height: 50px;
     display: flex;

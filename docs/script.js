@@ -21,6 +21,7 @@ let currentQuestion = 0;
 const answers = [];
 
 document.getElementById("start-button").addEventListener("click", () => {
+  // 診断スタート処理
   document.getElementById("start-container").style.display = "none";
   document.getElementById("question-container").style.display = "block";
   showQuestion();
